@@ -1,0 +1,27 @@
+[
+  {
+    "category": "Frontend",
+    "icon": "FaReact",
+    "items": ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML/CSS", "Framer Motion", "React Native"]
+  },
+  {
+    "category": "Backend",
+    "icon": "FaServer",
+    "items": ["Node.js", "Python", "Go", "FastAPI", "Express.js", "GraphQL", "REST APIs", "gRPC"]
+  },
+  {
+    "category": "ML & Data",
+    "icon": "FaBrain",
+    "items": ["TensorFlow", "PyTorch", "Scikit-learn", "Pandas", "Apache Spark", "Apache Kafka", "SQL", "MongoDB"]
+  },
+  {
+    "category": "DevOps & Cloud",
+    "icon": "FaCloud",
+    "items": ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform", "GitHub Actions", "Linux", "Nginx"]
+  },
+  {
+    "category": "Tools & Practices",
+    "icon": "FaTools",
+    "items": ["Git", "Agile/Scrum", "System Design", "TDD", "Figma", "Jira", "VS Code", "Vim"]
+  }
+]

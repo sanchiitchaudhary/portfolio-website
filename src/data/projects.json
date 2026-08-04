@@ -1,0 +1,41 @@
+[
+  {
+    "id": "project-1",
+    "title": "EY ML Playground",
+    "description": "A no-code machine learning platform enabling data ingestion, feature engineering, model training, and results visualization without writing code.",
+    "longDescription": "Built the flagship internal EY tool: a full-pipeline no-code ML platform with a React frontend and FastAPI backend. Covers Data Ingestion → Data Audit → Aggregation → Target Selection → Train/Test Split → Feature Selection → Model Selection/Tuning → Training → Results, governed by a CP×CC segmentation framework for model eligibility. Includes time-series models (ARIMA, SARIMA, ARIMAX) via statsmodels/pmdarima, hyperparameter tuning (Random/Grid/Bayesian via scikit-optimize), a Multi-Scenario Predictions Playground with CSV ingestion, Oracle/Tableau-style forecast visualizations with shaded confidence bands using Recharts, and a PostgreSQL-backed model history leaderboard.",
+    "techStack": ["React", "FastAPI", "PostgreSQL", "statsmodels", "pmdarima", "scikit-optimize", "Recharts"],
+    "thumbnailImage": "/projects/ey-ml-playground.svg",
+    "images": ["/projects/ey-ml-playground.svg"],
+    "liveUrl": "",
+    "githubUrl": "",
+    "featured": true,
+    "category": "ML/AI"
+  },
+  {
+    "id": "project-2",
+    "title": "Hospital X-Ray Locator App",
+    "description": "An app to find nearby hospitals for X-ray services with timings, reviews, pricing, and an integrated AI chatbot.",
+    "longDescription": "Designed an application to help users locate nearby hospitals offering X-ray services, surfacing service timings, reviews, and prices. Includes maps and search, a booking system, pricing logic, predictive ML for wait-time/availability, an integrated AI chatbot for user queries, and a payment system.",
+    "techStack": ["Maps API", "AI Chatbot", "Predictive ML", "Payments Integration"],
+    "thumbnailImage": "/projects/hospital-locator.svg",
+    "images": ["/projects/hospital-locator.svg"],
+    "liveUrl": "",
+    "githubUrl": "",
+    "featured": false,
+    "category": "Full Stack"
+  },
+  {
+    "id": "project-3",
+    "title": "ATS Resume Scanner",
+    "description": "A tool that scores resumes against job descriptions using ATS-style keyword and formatting checks.",
+    "longDescription": "Built a resume analysis tool that parses uploaded resumes and job descriptions, then scores match quality using keyword overlap, section/formatting checks, and skill-gap detection — similar to how real Applicant Tracking Systems filter candidates. Surfaces actionable suggestions to improve ATS pass-through rate.",
+    "techStack": ["Python", "NLP", "React", "FastAPI"],
+    "thumbnailImage": "/projects/ats-resume-scanner.svg",
+    "images": ["/projects/ats-resume-scanner.svg"],
+    "liveUrl": "",
+    "githubUrl": "",
+    "featured": true,
+    "category": "ML/AI"
+  }
+]

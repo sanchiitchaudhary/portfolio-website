@@ -1,0 +1,22 @@
+{
+  "name": "Sanchit Chaudhary",
+  "title": "Software Engineer",
+  "tagline": "Building elegant solutions to complex problems",
+  "bio": "I'm a passionate software engineer with expertise in full-stack development, machine learning, and cloud architecture. I love crafting beautiful, performant applications that make a real impact. When I'm not coding, you'll find me exploring new technologies, contributing to open source, or writing about software engineering best practices.",
+  "profilePhoto": "/sanchit.png",
+  "resumeLink": "/resume.pdf",
+  "contactEmail": "sanchiitchaudhary@gmail.com",
+  "location": "India",
+  "socialLinks": {
+    "github": "https://github.com/sanchitchaudhary",
+    "linkedin": "https://linkedin.com/in/sanchitchaudhary",
+    "twitter": "https://twitter.com/sanchitdev",
+    "email": "mailto:hello@sanchit.dev"
+  },
+  "seo": {
+    "title": "Sanchit Chaudhary — Software Engineer & Full-Stack Developer",
+    "description": "Personal portfolio of Sanchit Chaudhary — a software engineer specializing in full-stack development, machine learning, and building elegant digital experiences.",
+    "ogImage": "/sanchit.png",
+    "siteUrl": "https://sanchit.dev"
+  }
+}

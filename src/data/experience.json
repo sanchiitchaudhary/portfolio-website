@@ -1,0 +1,16 @@
+[
+  {
+    "role": "AI/ML Intern",
+    "company": "EY (Ernst & Young)",
+    "duration": "May 2026 — Jul 2026",
+    "description": "Built full-stack ML platforms for internal tooling and client engagements. Led development of the EY ML Playground, a no-code machine learning platform covering the full pipeline — data ingestion, audit, feature selection, model training/tuning, and results visualization — supporting Regression, Forecasting, and Classification model families. Also built OpEx Studio, a forecasting application for a Takeda×EY consulting engagement using DTW-based model routing across ARIMA, SARIMA, Prophet, LSTM, and LightGBM.",
+    "techUsed": ["React", "FastAPI", "PostgreSQL", "Python", "statsmodels", "pmdarima", "LightGBM", "Optuna", "Recharts"]
+  },
+  {
+    "role": "SAP ABAP Intern",
+    "company": "EY (Ernst & Young)",
+    "duration": "Jun 2025 — Jul 2025",
+    "description": "Worked on SAP ABAP development as part of an EY internship.",
+    "techUsed": ["SAP ABAP"]
+  }
+]
