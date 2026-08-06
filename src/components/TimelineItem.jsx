@@ -20,6 +20,16 @@ export default function TimelineItem({ item, index }) {
             <h3 className="text-xl font-bold mt-1 text-surface-100">{item.role}</h3>
             <p className="text-accent-300 font-medium text-sm mt-0.5">{item.company}</p>
             <p className="text-surface-400 mt-3 text-sm leading-relaxed">{item.description}</p>
+            {item.points && item.points.length > 0 && (
+              <ul className="mt-3 space-y-1.5 text-surface-300 text-sm leading-relaxed">
+                {item.points.map((pt, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="text-accent-400 font-bold shrink-0 mt-0.5">•</span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
             <div className="flex flex-wrap gap-2 mt-4">
               {item.techUsed.map((tech) => (
                 <span
@@ -75,6 +85,16 @@ export default function TimelineItem({ item, index }) {
             <h3 className="text-lg font-bold mt-1 text-surface-100">{item.role}</h3>
             <p className="text-accent-300 font-medium text-sm mt-0.5">{item.company}</p>
             <p className="text-surface-400 mt-3 text-sm leading-relaxed">{item.description}</p>
+            {item.points && item.points.length > 0 && (
+              <ul className="mt-3 space-y-1.5 text-surface-300 text-sm leading-relaxed">
+                {item.points.map((pt, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="text-accent-400 font-bold shrink-0 mt-0.5">•</span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
             <div className="flex flex-wrap gap-2 mt-4">
               {item.techUsed.map((tech) => (
                 <span

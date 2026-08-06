@@ -4,13 +4,24 @@
     "company": "EY (Ernst & Young)",
     "duration": "May 2026 — Jul 2026",
     "description": "Built full-stack ML platforms for internal tooling and client engagements. Led development of the EY ML Playground, a no-code machine learning platform covering the full pipeline — data ingestion, audit, feature selection, model training/tuning, and results visualization — supporting Regression, Forecasting, and Classification model families. Also built OpEx Studio, a forecasting application for a Takeda×EY consulting engagement using DTW-based model routing across ARIMA, SARIMA, Prophet, LSTM, and LightGBM.",
+    "points": [
+      "Architected EY ML Playground: full-pipeline no-code ML platform for automated data audit, feature engineering, and model tuning.",
+      "Engineered OpEx Studio for Takeda×EY engagement: implemented dynamic DTW model routing across time-series forecasting models (ARIMA, Prophet, LightGBM)."
+    ],
     "techUsed": ["React", "FastAPI", "PostgreSQL", "Python", "statsmodels", "pmdarima", "LightGBM", "Optuna", "Recharts"]
   },
   {
     "role": "SAP ABAP Intern",
     "company": "EY (Ernst & Young)",
     "duration": "Jun 2025 — Jul 2025",
-    "description": "Worked on SAP ABAP development as part of an EY internship.",
-    "techUsed": ["SAP ABAP"]
+    "description": "Developed custom SAP ABAP solutions, enhanced enterprise data processing workflows, and implemented customized business logic for client ERP transformation projects.",
+    "points": [
+      "Engineered custom ABAP Reports (ALV Grid & Interactive Reports) using Open SQL to optimize enterprise data extraction and financial auditing.",
+      "Designed and customized SAP Smart Forms and SAPscript layouts for automated enterprise documentation and invoice generation.",
+      "Implemented User Exits, BAdIs (Business Add-Ins), and Enhancement Spots to extend standard SAP ERP module functionalities without modifying core source code.",
+      "Utilized BAPIs (Business Application Programming Interfaces) and RFCs for secure data exchange between SAP ERP backend and external systems.",
+      "Performed SQL performance tuning, code optimization, and root-cause analysis using SAP ABAP Workbench & Debugging tools (SE80, ST05, SAT)."
+    ],
+    "techUsed": ["SAP ABAP", "SAP S/4HANA", "Open SQL", "ALV Reports", "BAPIs / BAdIs", "Smart Forms", "SAP ERP"]
   }
 ]
