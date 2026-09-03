@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import LoadingScreen from '@/components/LoadingScreen';
+import CustomCursor from '@/components/CustomCursor';
 
 import Hero from '@/sections/Hero';
 import About from '@/sections/About';
@@ -17,13 +18,14 @@ export default function App() {
     // Initial loading animation timer
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1200);
+    }, 1100);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="min-h-screen selection:bg-accent-600 selection:text-white relative">
+    <div className="min-h-screen selection:bg-accent-600 selection:text-white relative bg-surface-950 text-surface-200 antialiased overflow-x-hidden">
+      <CustomCursor />
       <LoadingScreen isLoading={isLoading} />
       <Navbar />
 

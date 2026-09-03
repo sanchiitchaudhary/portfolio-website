@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { FiSend, FiCheck, FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
+import { FiSend, FiCheck, FiGithub, FiLinkedin, FiTwitter, FiMail, FiArrowUpRight } from 'react-icons/fi';
 import SectionWrapper from '@/components/SectionWrapper';
 import Button from '@/components/Button';
 import profile from '@/data/profile.json';
@@ -21,13 +21,13 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate submission (replace with Formspree, EmailJS, etc.)
+    // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
 
-      // Reset after 5 seconds
+      // Reset success state after 5 seconds
       setTimeout(() => setIsSubmitted(false), 5000);
     }, 1500);
   };
@@ -38,9 +38,9 @@ export default function Contact() {
 
   return (
     <SectionWrapper id="contact">
-      {/* Blobs */}
-      <div className="blob blob-violet w-[400px] h-[400px] -bottom-40 left-1/4 opacity-15" />
-      <div className="blob blob-blue w-[300px] h-[300px] top-20 -right-20 opacity-10" />
+      {/* Background Blobs */}
+      <div className="blob blob-violet w-[450px] h-[450px] -bottom-40 left-1/4 opacity-20" />
+      <div className="blob blob-blue w-[350px] h-[350px] top-20 -right-20 opacity-15" />
 
       {/* Section header */}
       <motion.div
@@ -48,44 +48,47 @@ export default function Contact() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <h2 className="text-3xl sm:text-4xl md:text-h2 font-bold text-gradient">Get In Touch</h2>
-        <p className="text-surface-400 mt-3 max-w-xl mx-auto">
-          Have a project in mind or just want to say hello? I'd love to hear from you.
+        <span className="text-accent-400 font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full glass border border-accent-500/20 inline-block mb-3">
+          Let's Work Together
+        </span>
+        <h2 className="text-3xl sm:text-4xl md:text-h2 font-bold text-gradient font-heading">Get In Touch</h2>
+        <p className="text-surface-400 mt-3 max-w-xl mx-auto text-base">
+          Have a project in mind, an opportunity, or just want to say hello? Drop me a message.
         </p>
       </motion.div>
 
       <div className="grid md:grid-cols-5 gap-10 lg:gap-16">
-        {/* Contact form */}
+        {/* Interactive Contact Form */}
         <motion.div
           className="md:col-span-3"
-          initial={{ opacity: 0, x: -30 }}
+          initial={{ opacity: 0, x: -35 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="glass rounded-2xl p-6 sm:p-8">
+          <div className="glass glass-glow rounded-3xl p-6 sm:p-9 border border-white/10">
             <AnimatePresence mode="wait">
               {isSubmitted ? (
                 <motion.div
                   key="success"
-                  className="flex flex-col items-center justify-center py-12 text-center"
+                  className="flex flex-col items-center justify-center py-14 text-center"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ type: 'spring', damping: 15 }}
                 >
                   <motion.div
-                    className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-4"
+                    className="w-20 h-20 rounded-full bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center mb-5 shadow-[0_0_30px_rgba(52,211,153,0.3)]"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ delay: 0.2, type: 'spring', damping: 10 }}
+                    transition={{ delay: 0.15, type: 'spring', damping: 10 }}
                   >
-                    <FiCheck className="text-green-400" size={32} />
+                    <FiCheck className="text-emerald-400" size={40} />
                   </motion.div>
-                  <h3 className="text-xl font-bold text-surface-100">Message Sent!</h3>
-                  <p className="text-surface-400 mt-2">Thank you for reaching out. I'll get back to you soon.</p>
+                  <h3 className="text-2xl font-bold text-surface-100 font-heading">Message Sent Successfully!</h3>
+                  <p className="text-surface-300 mt-2 max-w-md">Thank you for reaching out. I've received your message and will get back to you shortly.</p>
                 </motion.div>
               ) : (
                 <motion.form
@@ -94,11 +97,11 @@ export default function Contact() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="space-y-5"
+                  className="space-y-6"
                 >
                   <div>
-                    <label htmlFor="contact-name" className="block text-sm font-medium text-surface-300 mb-2">
-                      Name
+                    <label htmlFor="contact-name" className="block text-xs font-mono font-bold uppercase tracking-wider text-surface-300 mb-2">
+                      Your Name
                     </label>
                     <input
                       id="contact-name"
@@ -107,17 +110,17 @@ export default function Contact() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Your name"
-                      className="w-full px-4 py-3 rounded-xl bg-surface-900/50 border border-surface-700/50
-                                 text-surface-200 placeholder-surface-500
-                                 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500/50
+                      placeholder="Sanchit Chaudhary"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-surface-900/60 border border-surface-700/60
+                                 text-surface-100 placeholder-surface-500 font-sans text-sm
+                                 focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30
                                  transition-all duration-200"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="contact-email" className="block text-sm font-medium text-surface-300 mb-2">
-                      Email
+                    <label htmlFor="contact-email" className="block text-xs font-mono font-bold uppercase tracking-wider text-surface-300 mb-2">
+                      Your Email
                     </label>
                     <input
                       id="contact-email"
@@ -126,17 +129,17 @@ export default function Contact() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="your@email.com"
-                      className="w-full px-4 py-3 rounded-xl bg-surface-900/50 border border-surface-700/50
-                                 text-surface-200 placeholder-surface-500
-                                 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500/50
+                      placeholder="sanchiitchaudhary@gmail.com"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-surface-900/60 border border-surface-700/60
+                                 text-surface-100 placeholder-surface-500 font-sans text-sm
+                                 focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30
                                  transition-all duration-200"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="contact-message" className="block text-sm font-medium text-surface-300 mb-2">
-                      Message
+                    <label htmlFor="contact-message" className="block text-xs font-mono font-bold uppercase tracking-wider text-surface-300 mb-2">
+                      Your Message
                     </label>
                     <textarea
                       id="contact-message"
@@ -145,15 +148,15 @@ export default function Contact() {
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell me about your project..."
-                      className="w-full px-4 py-3 rounded-xl bg-surface-900/50 border border-surface-700/50
-                                 text-surface-200 placeholder-surface-500
-                                 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500/50
+                      placeholder="Tell me about your project, idea, or role..."
+                      className="w-full px-4 py-3.5 rounded-2xl bg-surface-900/60 border border-surface-700/60
+                                 text-surface-100 placeholder-surface-500 font-sans text-sm
+                                 focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30
                                  transition-all duration-200 resize-none"
                     />
                   </div>
 
-                  <Button type="submit" variant="primary" className="w-full justify-center">
+                  <Button type="submit" variant="primary" className="w-full justify-center py-4 text-base">
                     {isSubmitting ? (
                       <motion.div
                         className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
@@ -162,8 +165,8 @@ export default function Contact() {
                       />
                     ) : (
                       <>
-                        Send Message
-                        <FiSend size={16} />
+                        <span>Send Message</span>
+                        <FiSend size={18} />
                       </>
                     )}
                   </Button>
@@ -173,23 +176,22 @@ export default function Contact() {
           </div>
         </motion.div>
 
-        {/* Social links + info */}
+        {/* Social Links & Contact Details */}
         <motion.div
           className="md:col-span-2"
-          initial={{ opacity: 0, x: 30 }}
+          initial={{ opacity: 0, x: 35 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="glass rounded-2xl p-6 sm:p-8 h-full flex flex-col justify-between">
+          <div className="glass glass-glow rounded-3xl p-6 sm:p-8 h-full flex flex-col justify-between border border-white/10">
             <div>
-              <h3 className="text-xl font-bold text-surface-100 mb-2">Let's connect</h3>
+              <h3 className="text-2xl font-bold text-surface-100 font-heading mb-2">Direct Contact</h3>
               <p className="text-surface-400 text-sm leading-relaxed mb-8">
-                Feel free to reach out through any of these platforms. I'm always open to discussing
-                new projects, creative ideas, or opportunities to be part of your vision.
+                Connect via social media or send an email directly. I respond quickly.
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {Object.entries(profile.socialLinks).map(([platform, url]) => {
                   const social = socialIcons[platform];
                   if (!social) return null;
@@ -200,29 +202,31 @@ export default function Contact() {
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-3 rounded-xl hover:bg-accent-600/10
-                                 transition-colors duration-200 group"
+                      className="flex items-center justify-between p-3.5 rounded-2xl glass hover:bg-accent-600/15 border border-surface-700/40 hover:border-accent-500/40 transition-all duration-300 group"
                       whileHover={{ x: 6 }}
                     >
-                      <div className="p-2.5 rounded-lg bg-accent-600/10 group-hover:bg-accent-600/20 transition-colors">
-                        <Icon className="text-accent-400" size={20} />
+                      <div className="flex items-center gap-3.5">
+                        <div className="p-2.5 rounded-xl bg-accent-600/20 text-accent-300 group-hover:bg-accent-600 group-hover:text-white transition-all">
+                          <Icon size={18} />
+                        </div>
+                        <div>
+                          <p className="text-surface-100 font-bold text-sm font-heading">{social.label}</p>
+                          <p className="text-surface-400 text-xs truncate max-w-[180px]">{url.replace(/https?:\/\//, '')}</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="text-surface-200 font-medium text-sm">{social.label}</p>
-                        <p className="text-surface-500 text-xs truncate max-w-[200px]">{url.replace(/https?:\/\//, '')}</p>
-                      </div>
+                      <FiArrowUpRight className="text-surface-500 group-hover:text-accent-300 transition-colors" size={18} />
                     </motion.a>
                   );
                 })}
               </div>
             </div>
 
-            {/* Email CTA */}
-            <div className="mt-8 pt-6 border-t border-surface-800/30">
-              <p className="text-surface-500 text-sm mb-1">Prefer email?</p>
+            {/* Email CTA Footer */}
+            <div className="mt-8 pt-6 border-t border-surface-800/60">
+              <p className="text-surface-500 text-xs font-mono uppercase tracking-wider mb-1">Direct Email</p>
               <a
                 href={`mailto:${profile.contactEmail}`}
-                className="text-accent-400 font-semibold hover:text-accent-300 transition-colors"
+                className="text-accent-300 font-bold text-sm sm:text-base hover:text-cyan-400 transition-colors"
               >
                 {profile.contactEmail}
               </a>

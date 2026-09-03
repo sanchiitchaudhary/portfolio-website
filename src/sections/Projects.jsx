@@ -21,8 +21,8 @@ export default function Projects() {
 
   return (
     <SectionWrapper id="projects">
-      {/* Blob */}
-      <div className="blob blob-blue w-[500px] h-[500px] -bottom-40 -left-40 opacity-20" />
+      {/* Background Blob */}
+      <div className="blob blob-blue w-[550px] h-[550px] -bottom-40 -left-40 opacity-20" />
 
       {/* Section header */}
       <motion.div
@@ -30,40 +30,51 @@ export default function Projects() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <h2 className="text-3xl sm:text-4xl md:text-h2 font-bold text-gradient">Projects</h2>
-        <p className="text-surface-400 mt-3 max-w-xl mx-auto">
-          A selection of things I've built and shipped
+        <span className="text-cyan-400 font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full glass border border-cyan-500/20 inline-block mb-3">
+          Featured Work
+        </span>
+        <h2 className="text-3xl sm:text-4xl md:text-h2 font-bold text-gradient font-heading">Projects</h2>
+        <p className="text-surface-400 mt-3 max-w-xl mx-auto text-base">
+          AI platforms, full-stack web applications, and technical innovations
         </p>
       </motion.div>
 
-      {/* Filter tabs */}
+      {/* Animated Filter Tabs */}
       <motion.div
-        className="flex flex-wrap justify-center gap-2 mb-10"
-        initial={{ opacity: 0, y: 10 }}
+        className="flex flex-wrap justify-center gap-2 mb-12 p-1.5 glass rounded-2xl max-w-fit mx-auto border border-surface-700/40"
+        initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: 0.2 }}
+        transition={{ duration: 0.5, delay: 0.15 }}
       >
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveFilter(cat)}
-            className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer
-              ${activeFilter === cat
-                ? 'bg-accent-600 text-white'
-                : 'text-surface-400 hover:text-surface-200 bg-surface-800/30 hover:bg-surface-800/60'
+        {categories.map((cat) => {
+          const isActive = activeFilter === cat;
+          return (
+            <button
+              key={cat}
+              onClick={() => setActiveFilter(cat)}
+              className={`relative px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200 cursor-pointer ${
+                isActive ? 'text-white' : 'text-surface-400 hover:text-surface-200'
               }`}
-          >
-            {cat}
-          </button>
-        ))}
+            >
+              {isActive && (
+                <motion.div
+                  layoutId="activeFilterPill"
+                  className="absolute inset-0 bg-accent-600 rounded-xl shadow-[0_0_20px_rgba(124,58,237,0.5)]"
+                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">{cat}</span>
+            </button>
+          );
+        })}
       </motion.div>
 
-      {/* Bento grid */}
+      {/* Bento grid layout */}
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 auto-rows-auto"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 auto-rows-auto"
         layout
       >
         <AnimatePresence mode="popLayout">
@@ -78,7 +89,7 @@ export default function Projects() {
         </AnimatePresence>
       </motion.div>
 
-      {/* Modal */}
+      {/* Detail Modal */}
       <ProjectModal
         project={selectedProject}
         isOpen={!!selectedProject}
