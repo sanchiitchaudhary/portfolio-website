@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
+import { FiDownload } from 'react-icons/fi';
 import SectionWrapper from '@/components/SectionWrapper';
 import SkillTag from '@/components/SkillTag';
+import Button from '@/components/Button';
 import profile from '@/data/profile.json';
 import skills from '@/data/skills.json';
 
@@ -69,6 +71,19 @@ export default function About() {
           <p className="text-surface-400 leading-relaxed text-base sm:text-lg">
             {profile.bio}
           </p>
+
+          <div className="mt-6">
+            <Button
+              href={profile.resumeLink}
+              variant="secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Sanchit_Chaudhary_Resume.pdf"
+            >
+              <FiDownload size={16} />
+              Download Resume
+            </Button>
+          </div>
 
           {/* Quick tech tags */}
           <div className="mt-8">

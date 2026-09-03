@@ -117,7 +117,7 @@ export default function Hero() {
             View Projects
             <FiArrowDown size={16} />
           </Button>
-          <Button href={profile.resumeLink} variant="secondary" target="_blank" rel="noopener noreferrer">
+          <Button href={profile.resumeLink} variant="secondary" target="_blank" rel="noopener noreferrer" download="Sanchit_Chaudhary_Resume.pdf">
             <FiDownload size={16} />
             Download Resume
           </Button>
